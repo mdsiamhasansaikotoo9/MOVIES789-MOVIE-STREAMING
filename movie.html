@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie — Movies 789</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="home.html" class="brand">
+      <span class="brand-mark">M</span>
+      Movies <span>789</span>
+    </a>
+    <nav class="nav-links">
+      <a href="home.html">Home</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="user-chip" id="user-chip">
+        <span class="avatar" id="user-avatar">?</span>
+        <span id="user-name-label">Account</span>
+        <div class="user-menu" id="user-menu">
+          <a href="account.html">My account</a>
+          <button id="logout-btn" class="danger">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<a href="home.html" class="wrap" style="display:block; padding-top:24px; color:var(--text-faint); font-size:0.88rem;">← Back to browsing</a>
+
+<section class="feature-hero" id="movie-hero" style="min-height:56vh;"></section>
+
+<main class="wrap" style="padding:50px 40px 70px; max-width:900px;">
+
+  <section id="rate-panel" class="panel">
+    <h2>Rate this film</h2>
+    <p style="color:var(--text-dim); font-size:0.9rem; margin:0 0 16px;">Tap a star, then leave a written review below.</p>
+    <div class="star-input" id="star-input">
+      <button data-star="1">★</button>
+      <button data-star="2">★</button>
+      <button data-star="3">★</button>
+      <button data-star="4">★</button>
+      <button data-star="5">★</button>
+      <span id="star-value" class="star-value"></span>
+    </div>
+
+    <form id="review-form" style="margin-top:22px;">
+      <div class="field" style="margin-bottom:14px;">
+        <label for="review-text">Your review</label>
+        <textarea id="review-text" required placeholder="What did you think?" style="width:100%; background:var(--bg); border:1px solid var(--line); border-radius:var(--radius-s); padding:12px 14px; color:var(--text); font-family:inherit; min-height:100px; resize:vertical;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Post review</button>
+      <span id="review-note" style="color:var(--text-faint); font-size:0.82rem; margin-left:12px;"></span>
+    </form>
+  </section>
+
+  <section style="margin-top:40px;">
+    <div class="section-head">
+      <h2 id="reviews-heading">Reviews</h2>
+      <span id="reviews-avg" style="color:var(--gold); font-weight:700; font-size:0.95rem;"></span>
+    </div>
+    <div id="review-list"></div>
+    <div class="empty-state" id="reviews-empty" style="display:none; padding:50px 10px;">
+      <div class="icon">✍️</div>
+      <h3>No reviews yet</h3>
+      <p>Be the first to rate and review this title.</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/movie.js"></script>
+</body>
+</html>

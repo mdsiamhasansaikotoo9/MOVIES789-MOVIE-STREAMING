@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — Movies 789</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-shell">
+  <div class="auth-card">
+    <div class="auth-icon">🎬</div>
+
+    <div id="signin-view">
+      <h1>Welcome back</h1>
+      <p class="sub">Sign in to pick up where you left off.</p>
+      <div class="auth-error" id="signin-error"></div>
+      <form id="signin-form">
+        <div class="field">
+          <label for="si-email">Email</label>
+          <input id="si-email" type="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="si-password">Password</label>
+          <input id="si-password" type="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+      <div class="auth-switch">New here? <button id="to-signup">Create an account</button></div>
+    </div>
+
+    <div id="signup-view" style="display:none;">
+      <h1>Create your account</h1>
+      <p class="sub">Takes about 20 seconds. Really.</p>
+      <div class="auth-error" id="signup-error"></div>
+      <form id="signup-form">
+        <div class="field">
+          <label for="su-name">Name</label>
+          <input id="su-name" type="text" required placeholder="Jordan Rivera">
+        </div>
+        <div class="field">
+          <label for="su-email">Email</label>
+          <input id="su-email" type="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="su-password">Password</label>
+          <input id="su-password" type="password" required minlength="4" placeholder="At least 4 characters">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+      </form>
+      <div class="auth-switch">Already have an account? <button id="to-signin">Sign in</button></div>
+    </div>
+
+    <div class="auth-note">Demo build — accounts and passwords are saved only in this browser's local storage.</div>
+  </div>
+</div>
+
+<a href="index.html" class="back-link" style="position:fixed; bottom:24px; left:50%; transform:translateX(-50%);">← Back to home</a>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  const signinView = document.getElementById("signin-view");
+  const signupView = document.getElementById("signup-view");
+
+  function showSignup() { signinView.style.display = "none"; signupView.style.display = "block"; }
+  function showSignin() { signupView.style.display = "none"; signinView.style.display = "block"; }
+
+  if (new URLSearchParams(location.search).get("mode") === "signup") showSignup();
+
+  document.getElementById("to-signup").addEventListener("click", showSignup);
+  document.getElementById("to-signin").addEventListener("click", showSignin);
+
+  document.getElementById("signin-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const email = document.getElementById("si-email").value.trim();
+    const password = document.getElementById("si-password").value;
+    const result = signIn(email, password);
+    const errBox = document.getElementById("signin-error");
+    if (!result.ok) {
+      errBox.textContent = result.error;
+      errBox.classList.add("show");
+      return;
+    }
+    window.location.href = "home.html";
+  });
+
+  document.getElementById("signup-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("su-name").value.trim();
+    const email = document.getElementById("su-email").value.trim();
+    const password = document.getElementById("su-password").value;
+    const result = signUp(name, email, password);
+    const errBox = document.getElementById("signup-error");
+    if (!result.ok) {
+      errBox.textContent = result.error;
+      errBox.classList.add("show");
+      return;
+    }
+    window.location.href = "home.html";
+  });
+</script>
+</body>
+</html>

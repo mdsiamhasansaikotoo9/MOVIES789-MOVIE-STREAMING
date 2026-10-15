@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movies 789 — Premium Movie &amp; TV Streaming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">M</span>
+      Movies <span>789</span>
+    </a>
+    <div class="nav-actions" style="margin-left:auto;">
+      <a href="admin/login.html" class="btn btn-ghost" style="padding:10px 18px;">Admin</a>
+      <a href="signin.html" class="btn btn-primary">Sign in</a>
+    </div>
+  </div>
+</header>
+
+<section class="landing-hero">
+  <div class="wrap">
+    <div class="eyebrow">✦ New season, new stories</div>
+    <h1 class="landing-headline">Endless films.<br>Bingeable series. <em>One place.</em></h1>
+    <p class="landing-sub">Movies 789 brings a cinematic catalog, personal wishlists and continue-watching to every screen you own.</p>
+    <div class="landing-actions">
+      <a href="signin.html?mode=signup" class="btn btn-primary">▶ Get started</a>
+      <a href="signin.html" class="btn btn-outline">I already have an account</a>
+    </div>
+    <div class="landing-note">🛡 Demo build — accounts are stored locally in your browser, not on a secure server.</div>
+  </div>
+
+  <div class="strip" id="landing-strip"></div>
+</section>
+
+<section class="wrap" style="padding:70px 40px;">
+  <div class="section-head">
+    <h2>Why people stick around</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px;">
+    <div class="panel" style="margin-bottom:0;">
+      <h2 style="margin-bottom:10px;">A catalog that's actually curated</h2>
+      <p style="color:var(--text-dim); font-size:0.92rem; margin:0;">Ten genres, hand-written blurbs, no filler sequels padding out the grid.</p>
+    </div>
+    <div class="panel" style="margin-bottom:0;">
+      <h2 style="margin-bottom:10px;">Your wishlist, everywhere</h2>
+      <p style="color:var(--text-dim); font-size:0.92rem; margin:0;">Save a title on one device, it's waiting for you on the next.</p>
+    </div>
+    <div class="panel" style="margin-bottom:0;">
+      <h2 style="margin-bottom:10px;">Built for the people running it</h2>
+      <p style="color:var(--text-dim); font-size:0.92rem; margin:0;">A real admin console for managing titles, genres and the catalog's shape.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+    <span>© 2026 Movies 789. A demo project — not a real streaming service.</span>
+    <span>Built with HTML, CSS &amp; JavaScript.</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  const strip = document.getElementById("landing-strip");
+  MOVIES.slice(0, 10).forEach(m => {
+    const el = document.createElement("div");
+    el.className = "poster";
+    el.innerHTML = `
+      <img src="${posterUrl(m.seed)}" alt="${m.title} poster" loading="lazy">
+      <div class="poster-rating">★ ${m.rating}</div>
+    `;
+    strip.appendChild(el);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Movies 789</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="home.html" class="brand">
+      <span class="brand-mark">M</span>
+      Movies <span>789</span>
+    </a>
+    <nav class="nav-links">
+      <a href="home.html" class="active" data-view="home">Home</a>
+      <a href="#" data-view="movies">Movies</a>
+      <a href="#" data-view="tv">TV Shows</a>
+      <a href="#" data-view="genres">Genres</a>
+      <a href="#" data-view="trending">Trending</a>
+      <a href="#" data-view="wishlist">Wishlist</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="user-chip" id="user-chip">
+        <span class="avatar" id="user-avatar">?</span>
+        <span id="user-name-label">Account</span>
+        <div class="user-menu" id="user-menu">
+          <a href="#" data-view="wishlist">My wishlist</a>
+          <a href="account.html">My account</a>
+          <button id="logout-btn" class="danger">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-home">
+  <section class="feature-hero" id="feature-hero"></section>
+
+  <section class="wrap row-section" id="trending-section">
+    <div class="section-head">
+      <h2>Trending Now</h2>
+    </div>
+    <div class="carousel">
+      <div class="carousel-nav">
+        <button id="car-prev" aria-label="Scroll left">‹</button>
+        <button id="car-next" aria-label="Scroll right">›</button>
+      </div>
+      <div class="carousel-track" id="trending-track"></div>
+    </div>
+  </section>
+
+  <section class="wrap row-section" style="padding-top:0;">
+    <div class="section-head">
+      <h2>Fresh Drama</h2>
+    </div>
+    <div class="carousel">
+      <div class="carousel-track" id="drama-track"></div>
+    </div>
+  </section>
+</main>
+
+<main id="main-browse" class="wrap" style="display:none; padding-top:34px; padding-bottom:60px;">
+  <div class="section-head">
+    <h2 id="browse-title">Movies</h2>
+    <span id="browse-count" style="color:var(--text-faint); font-size:0.85rem;"></span>
+  </div>
+  <div class="search-bar" style="margin:0 0 4px;">
+    <span>🔍</span>
+    <input type="text" id="search-input" placeholder="Search titles…">
+  </div>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="grid-posters" id="browse-grid"></div>
+  <div class="empty-state" id="empty-state" style="display:none;">
+    <div class="icon">🎞️</div>
+    <h3>Nothing here yet</h3>
+    <p>Try a different genre or search term.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+    <span>© 2026 Movies 789. A demo project — not a real streaming service.</span>
+    <span>Built with HTML, CSS &amp; JavaScript.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

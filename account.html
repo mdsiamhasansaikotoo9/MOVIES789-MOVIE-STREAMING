@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account — Movies 789</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="home.html" class="brand">
+      <span class="brand-mark">M</span>
+      Movies <span>789</span>
+    </a>
+    <nav class="nav-links">
+      <a href="home.html">Home</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="user-chip" id="user-chip">
+        <span class="avatar" id="user-avatar">?</span>
+        <span id="user-name-label">Account</span>
+        <div class="user-menu" id="user-menu">
+          <a href="account.html" class="active">My account</a>
+          <button id="logout-btn" class="danger">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" style="padding:50px 40px 80px;">
+  <div class="section-head" style="margin-bottom:6px;">
+    <h2 style="font-size:1.9rem;">My account</h2>
+  </div>
+  <p id="account-sub" style="color:var(--text-dim); margin:0 0 36px;"></p>
+
+  <div class="section-head">
+    <h2>Choose your plan</h2>
+    <span style="color:var(--text-faint); font-size:0.85rem;">Cosmetic in this demo — no payment is processed.</span>
+  </div>
+  <div class="plan-grid" id="plan-grid"></div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>
