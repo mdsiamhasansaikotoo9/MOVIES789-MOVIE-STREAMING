@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin sign in — Movies 789</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="auth-shell">
+  <div class="auth-card">
+    <div class="auth-icon">🛡</div>
+    <h1>Admin console</h1>
+    <p class="sub">Restricted area — content management for Movies 789.</p>
+    <div class="auth-error" id="admin-error"></div>
+    <form id="admin-login-form">
+      <div class="field">
+        <label for="a-username">Username</label>
+        <input id="a-username" type="text" required placeholder="admin">
+      </div>
+      <div class="field">
+        <label for="a-password">Password</label>
+        <input id="a-password" type="password" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Sign in as admin</button>
+    </form>
+    <div class="auth-note">Demo credentials — username <strong>admin</strong>, password <strong>admin1234</strong>.</div>
+    <a href="../signin.html" class="back-link">Back to user sign in</a>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+  document.getElementById("admin-login-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const username = document.getElementById("a-username").value.trim();
+    const password = document.getElementById("a-password").value;
+    const result = adminSignIn(username, password);
+    const errBox = document.getElementById("admin-error");
+    if (!result.ok) {
+      errBox.textContent = result.error;
+      errBox.classList.add("show");
+      return;
+    }
+    window.location.href = "dashboard.html";
+  });
+</script>
+</body>
+</html>
